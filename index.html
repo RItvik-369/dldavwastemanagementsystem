@@ -1861,7 +1861,28 @@ introsplitTypes.forEach(function (char, i) {
     duration: 0.3 // full text duration
   });
 });
+   
+    // Listen for the page load event
+    window.addEventListener('load', function () {
+      // Check if the navigation is supported by the browser
+      if (window.history && window.history.pushState) {
+        // Set initial state
+        history.pushState({ page: 1 }, "", "");
 
+        // Listen for the popstate event (back/forward buttons)
+        window.addEventListener('popstate', function (event) {
+          // Check if we are on the home page
+          if (event.state && event.state.page === 1) {
+            // Handle going back to the home page
+            // You can customize this part based on your needs
+            window.location.href = 'https://ritvik-369.github.io/dldavwastemanagementsystem/'; // Replace '/' with your home page URL
+          }
+        });
+      }
+    });
+  
+
+  
 </script>
 
 </html>
